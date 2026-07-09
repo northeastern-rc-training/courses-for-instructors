@@ -1,7 +1,7 @@
 # Research Computing Training
 ---
 
-<img src="images/neu-logo.png" alt="drawing" width="900"/>
+<img src="images/neu-logo.jpg" alt="drawing" width="900"/>
 
 
 ## Presenter
@@ -44,7 +44,7 @@ Performant and archival storage capabilities. ​
 
 ### CPU Nodes — `courses` partition
 
-[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses -N -o "%.12N %.8c %.8m %.30G %.8t"
+`[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses -N -o "%.12N %.8c %.8m %.30G %.8t"
     NODELIST     CPUS   MEMORY                           GRES    STATE
        c0584       28   256000                         (null)     idle
        c0598       28   257000                         (null)    down*
@@ -66,8 +66,7 @@ Performant and archival storage capabilities. ​
        d0036       56   186000                         (null)      mix
        d0125      112   191319                         (null)     idle
        d0135      128   514000                         (null)     idle
-       d0144      128   515000                         (null)    down*
-       
+       d0144      128   515000                         (null)    down*`
 
 
 ### GPU Nodes — `courses-gpu` partition
@@ -125,7 +124,7 @@ c[2189-2192]          28    515000  (null)                             0/4/0/4  
 
 #### `module avail` — CLI software catalogue
 
-[k.shaymardanov@explorer-02 courses-for-instructors]$ module avail
+`[k.shaymardanov@explorer-02 courses-for-instructors]$ module avail
 ---------------------------------------------------------- /shared/EL9/explorer/modulefiles -----------------------------------------------------------
 7zip/2501          code-server/4.91.1   FFmpeg/7.1.1                 intel/tbb-2022.0    namd/2.14-mpi-plumed  perl/5.40.0           VMD/1.9.3     
 Abaqus/2023        code-server/4.101.1  GA/5.9.2                     intel/umf-0.9.1     namd/3.0.1            plumed/2.10.0         VMD/1.9.4a55  
@@ -152,7 +151,7 @@ cmake/4.4.0        fastqc/0.12.1        intel/mpi-2021.14            namd/2.14-m
 dot  module-git  module-info  modules  null  use.own  
 
 Key:
-loaded  modulepath 
+loaded  modulepath`
 
 #### Open OnDemand — interactive browser apps
 
