@@ -44,7 +44,8 @@ Performant and archival storage capabilities. ​
 
 ### CPU Nodes — `courses` partition
 
-`[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses -N -o "%.12N %.8c %.8m %.30G %.8t"
+<pre>
+[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses -N -o "%.12N %.8c %.8m %.30G %.8t"
     NODELIST     CPUS   MEMORY                           GRES    STATE
        c0584       28   256000                         (null)     idle
        c0598       28   257000                         (null)    down*
@@ -67,12 +68,15 @@ Performant and archival storage capabilities. ​
        d0125      112   191319                         (null)     idle
        d0135      128   514000                         (null)     idle
        d0144      128   515000                         (null)    down*`
-
+<\pre>
 
 ### GPU Nodes — `courses-gpu` partition
 
+```bash
 [k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses-gpu -N -o "%.12N %.8c %.8m %.30G %.8t"
-    NODELIST     CPUS   MEMORY                           GRES    STATE
+```
+```text
+NODELIST     CPUS   MEMORY                           GRES    STATE
        c2184       28   512000              gpu:p100:3(S:0-1)    down*
        c2185       28   512000              gpu:p100:4(S:0-1)     idle
        c2186       28   512000              gpu:p100:4(S:0-1)     idle
@@ -87,10 +91,11 @@ Performant and archival storage capabilities. ​
        c2195       28   512000              gpu:p100:4(S:0-1)     idle
        d1004       28   187000         gpu:v100-sxm2:4(S:0-1)      mix
        d1011       28   191000         gpu:v100-sxm2:4(S:0-1)    drain
-       
+```
+
 ### GPU Type Summary
 
-[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses-gpu -eO "NodeList:22,CPUs:6,Memory:8,Gres:35,NodeAIOT:12,StateLong:10"      
+```[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses-gpu -eO "NodeList:22,CPUs:6,Memory:8,Gres:35,NodeAIOT:12,StateLong:10"      
 NODELIST              CPUS  MEMORY  GRES                               NODES(A/I/O/STATE     
 c2184                 28    512000  gpu:p100:3(S:0-1)                  0/0/1/1     down*     
 c2187                 28    512000  gpu:p100:4(S:0-1)                  0/0/1/1     down*     
@@ -99,6 +104,7 @@ d1004                 28    187000  gpu:v100-sxm2:4(S:0-1)             1/0/0/1  
 c[2185-2186,2193-2195]28    512000  gpu:p100:4(S:0-1)                  0/5/0/5     idle      
 c2188                 28    512000  gpu:p100:3(S:0-1)                  0/1/0/1     idle      
 c[2189-2192]          28    515000  (null)                             0/4/0/4     idle   
+```
 
 
 ---
