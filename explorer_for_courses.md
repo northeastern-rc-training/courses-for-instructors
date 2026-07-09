@@ -44,8 +44,10 @@ Performant and archival storage capabilities. ​
 
 ### CPU Nodes — `courses` partition
 
-<pre>
+```bash
 [k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses -N -o "%.12N %.8c %.8m %.30G %.8t"
+```
+```text
     NODELIST     CPUS   MEMORY                           GRES    STATE
        c0584       28   256000                         (null)     idle
        c0598       28   257000                         (null)    down*
@@ -68,7 +70,7 @@ Performant and archival storage capabilities. ​
        d0125      112   191319                         (null)     idle
        d0135      128   514000                         (null)     idle
        d0144      128   515000                         (null)    down*`
-<\pre>
+```
 
 ### GPU Nodes — `courses-gpu` partition
 
