@@ -1,28 +1,18 @@
-<meta charset="UTF-8">
-<style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-       max-width: 960px; margin: 0 auto; padding: 24px; color: #1a1a18; }
-h1 { border-bottom: 2px solid #e0dfd8; padding-bottom: 8px; }
-h2 { border-bottom: 1px solid #e0dfd8; padding-bottom: 6px; margin-top: 36px; }
-table { border-collapse: collapse; width: 100%; font-size: 13px; }
-th { background: #f7f7f5; text-align: left; padding: 6px 10px;
-     border-bottom: 2px solid #e0dfd8; }
-td { padding: 5px 10px; border-bottom: 1px solid #e0dfd8; }
-tr:hover td { background: #f7f7f5; }
-code { background: #f0efeb; padding: 1px 5px; border-radius: 4px; font-size: 92%; }
-pre  { background: #0f1117; color: #c9d1d9; padding: 14px 16px;
-       border-radius: 8px; overflow-x: auto; font-size: 12.5px; line-height: 1.7; }
-blockquote { border-left: 3px solid #e0dfd8; margin-left: 0; padding-left: 16px; color: #6b6a64; }
-hr { border: none; border-top: 1px solid #e0dfd8; margin: 32px 0; }
-</style>
+# Research Computing Training
+---
+
+<img src="images/neu-logo.png" alt="drawing" width="900"/>
 
 
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>neu-logo</em><br><code style="font-size:11px">neu-logo.jpg</code></div>
+## Presenter
+---
+Khurshid Shaymardanov \
+HPC Systems Engineer \
+Research Computing (RC) \
+https://rc.northeastern.edu/research-computing-team/
 
 # Explorer Cluster for Instructors and Courses
-## Khurshid Shaymardanov
-## HPC Systems Engineer
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>MGHPCC</em><br><code style="font-size:11px">mghpcc-carousel.jpg.webp</code></div>
+**HPC Summer Training Series**
 
 
 ---
@@ -42,15 +32,6 @@ Performant and archival storage capabilities. ​
     - Compute: courses and courses-gpu partitions
     - All members of the course can also access the standard explorer partitions (express, short, gpu). https://rc.northeastern.edu/partitions/
 
-The individual cells below are for configuring the Demo section of Explorer Cluster and Research Computing (RC) Support
-
-| Cell #   |     1     |    2    |       3      |     4     |   5    |     6     |       7      |
-|----------|-----------|---------|--------------|-----------|--------|-----------|--------------| 
-| Contents | `CLUSTER` | `NODES` | `PARTITIONS` | `MODULES` | `JOBS` | `Explorer`| `RC Support` |
-
-Note: Edit any data cell → re-run **Panel builders** → re-run **Cell 7** (Render).
-
-
 ---
 
 
@@ -63,62 +44,62 @@ Note: Edit any data cell → re-run **Panel builders** → re-run **Cell 7** (Re
 
 ### CPU Nodes — `courses` partition
 
-*21 nodes &nbsp;·&nbsp; AMD EPYC 7763 &nbsp;·&nbsp; 64 cores / 256 GB RAM*
+[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses -N -o "%.12N %.8c %.8m %.30G %.8t"
+    NODELIST     CPUS   MEMORY                           GRES    STATE
+       c0584       28   256000                         (null)     idle
+       c0598       28   257000                         (null)    down*
+       c0601       28   257000                         (null)    down*
+       c0617       28   257000                         (null)     idle
+       c0638       28   257000                         (null)     idle
+       c0642       28   256000                         (null)     idle
+       c0648       28   256000                         (null)     idle
+       c0655       28   256000                         (null)     idle
+       c0662       28   257000                         (null)     idle
+       c0666       28   257000                         (null)     idle
+       c3014       20    62000                         (null)      mix
+       c3039       20   128000                         (null)    down*
+       d0010       56   186000                         (null)     idle
+       d0011       56   186000                         (null)     idle
+       d0016       56   186000                         (null)    down*
+       d0017       56   186000                         (null)     idle
+       d0018       56   186000                         (null)     idle
+       d0036       56   186000                         (null)      mix
+       d0125      112   191319                         (null)     idle
+       d0135      128   514000                         (null)     idle
+       d0144      128   515000                         (null)    down*
+       
 
-| Node | OS Version | Kernel | Status |
-|------|-----------|--------|--------|
-| `c0001` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0002` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0003` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0004` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0005` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0006` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0007` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0008` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0009` | Rocky Linux 9.4 | `5.14.0-427.31.1.el9_4` | ✅ healthy |
-| `c0010` | Rocky Linux 9.4 | `5.14.0-427.31.1.el9_4` | ✅ healthy |
-| `c0011` | Rocky Linux 9.4 | `5.14.0-427.31.1.el9_4` | ✅ healthy |
-| `c0012` | Rocky Linux 9.4 | `5.14.0-427.31.1.el9_4` | ✅ healthy |
-| `c0013` | Rocky Linux 9.4 | `5.14.0-427.31.1.el9_4` | ✅ healthy |
-| `c0014` | Rocky Linux 9.4 | `5.14.0-427.31.1.el9_4` | ✅ healthy |
-| `c0015` | Rocky Linux 9.3 | `5.14.0-362.18.1.el9_3` | ✅ healthy |
-| `c0016` | Rocky Linux 9.3 | `5.14.0-362.18.1.el9_3` | ✅ healthy |
-| `c0017` | Rocky Linux 9.4 | `5.14.0-427.31.1.el9_4` | ⚠️ draining |
-| `c0018` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0019` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0020` | Rocky Linux 9.5 | `5.14.0-503.23.2.el9_5` | ✅ healthy |
-| `c0021` | Rocky Linux 9.3 | `5.14.0-362.18.1.el9_3` | ❌ down |
 
 ### GPU Nodes — `courses-gpu` partition
 
-| Node | GPU Model | GPUs | VRAM | CPU | OS | Status |
-|------|-----------|------|------|-----|----|--------|
-| `d0001` | NVIDIA A100 40GB SXM | 4 | 40 GB | AMD EPYC 7763 | Rocky Linux 9.5 | ✅ |
-| `d0002` | NVIDIA A100 40GB SXM | 4 | 40 GB | AMD EPYC 7763 | Rocky Linux 9.5 | ✅ |
-| `d0003` | NVIDIA A100 80GB SXM | 4 | 80 GB | AMD EPYC 7763 | Rocky Linux 9.5 | ✅ |
-| `d0004` | NVIDIA A100 80GB SXM | 4 | 80 GB | AMD EPYC 7763 | Rocky Linux 9.5 | ✅ |
-| `d0005` | NVIDIA H100 80GB SXM5 | 8 | 80 GB | AMD EPYC 9654 | Rocky Linux 9.5 | ✅ |
-| `d0006` | NVIDIA H100 80GB SXM5 | 8 | 80 GB | AMD EPYC 9654 | Rocky Linux 9.5 | ✅ |
-| `d0007` | NVIDIA A30 24GB | 8 | 24 GB | Intel Xeon Gold 6338 | Rocky Linux 9.4 | ✅ |
-| `d0008` | NVIDIA A30 24GB | 8 | 24 GB | Intel Xeon Gold 6338 | Rocky Linux 9.4 | ✅ |
-| `d0009` | NVIDIA V100 32GB | 4 | 32 GB | Intel Xeon Gold 6338 | Rocky Linux 9.3 | ✅ |
-| `d0010` | NVIDIA V100 32GB | 4 | 32 GB | Intel Xeon Gold 6338 | Rocky Linux 9.3 | ✅ |
-| `d0011` | NVIDIA L40S 48GB | 4 | 48 GB | AMD EPYC 7763 | Rocky Linux 9.4 | ✅ |
-| `d0012` | NVIDIA L40S 48GB | 4 | 48 GB | AMD EPYC 7763 | Rocky Linux 9.4 | ⚠️ |
-| `d0013` | NVIDIA P100 24GB | 8 | 24 GB | AMD EPYC 7763 | Rocky Linux 9.5 | ✅ |
-| `d0014` | NVIDIA P100 24GB | 8 | 24 GB | AMD EPYC 7763 | Rocky Linux 9.5 | ❌ |
-
+[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses-gpu -N -o "%.12N %.8c %.8m %.30G %.8t"
+    NODELIST     CPUS   MEMORY                           GRES    STATE
+       c2184       28   512000              gpu:p100:3(S:0-1)    down*
+       c2185       28   512000              gpu:p100:4(S:0-1)     idle
+       c2186       28   512000              gpu:p100:4(S:0-1)     idle
+       c2187       28   512000              gpu:p100:4(S:0-1)    down*
+       c2188       28   512000              gpu:p100:3(S:0-1)     idle
+       c2189       28   515000                         (null)     idle
+       c2190       28   515000                         (null)     idle
+       c2191       28   515000                         (null)     idle
+       c2192       28   515000                         (null)     idle
+       c2193       28   512000              gpu:p100:4(S:0-1)     idle
+       c2194       28   512000              gpu:p100:4(S:0-1)     idle
+       c2195       28   512000              gpu:p100:4(S:0-1)     idle
+       d1004       28   187000         gpu:v100-sxm2:4(S:0-1)      mix
+       d1011       28   191000         gpu:v100-sxm2:4(S:0-1)    drain
+       
 ### GPU Type Summary
 
-| GPU Model | Node count | GPUs/node | VRAM/GPU |
-|-----------|------------|-----------|----------|
-| NVIDIA A100 40GB SXM | 2 | 4 | 40 GB |
-| NVIDIA A100 80GB SXM | 2 | 4 | 80 GB |
-| NVIDIA A30 24GB | 2 | 8 | 24 GB |
-| NVIDIA H100 80GB SXM5 | 2 | 8 | 80 GB |
-| NVIDIA L40S 48GB | 2 | 4 | 48 GB |
-| NVIDIA P100 24GB | 2 | 8 | 24 GB |
-| NVIDIA V100 32GB | 2 | 4 | 32 GB |
+[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses-gpu -eO "NodeList:22,CPUs:6,Memory:8,Gres:35,NodeAIOT:12,StateLong:10"      
+NODELIST              CPUS  MEMORY  GRES                               NODES(A/I/O/STATE     
+c2184                 28    512000  gpu:p100:3(S:0-1)                  0/0/1/1     down*     
+c2187                 28    512000  gpu:p100:4(S:0-1)                  0/0/1/1     down*     
+d1011                 28    191000  gpu:v100-sxm2:4(S:0-1)             0/0/1/1     drained   
+d1004                 28    187000  gpu:v100-sxm2:4(S:0-1)             1/0/0/1     mixed     
+c[2185-2186,2193-2195]28    512000  gpu:p100:4(S:0-1)                  0/5/0/5     idle      
+c2188                 28    512000  gpu:p100:3(S:0-1)                  0/1/0/1     idle      
+c[2189-2192]          28    515000  (null)                             0/4/0/4     idle   
 
 
 ---
@@ -129,8 +110,9 @@ Note: Edit any data cell → re-run **Panel builders** → re-run **Cell 7** (Re
 
 | Partition | Nodes | Total CPUs | GPU Types | Time Limit | Mem default / max | State | Notes |
 |-----------|-------|-----------|-----------|------------|-------------------|-------|-------|
-| `courses` | 21 | 1,344 | — | 2-00:00:00 | 4G / 256G | up | General CPU compute for coursework |
+| `courses` | 21 | 1,024 | — | 2-00:00:00 | 4G / 256G | up | General CPU compute for coursework |
 | `courses-gpu` | 14 | 960 | NVIDIA A100 40GB SXM<br>NVIDIA A100 80GB SXM<br>NVIDIA A30 24GB<br>NVIDIA H100 80GB SXM5<br>NVIDIA L40S 48GB<br>NVIDIA P100 24GB<br>NVIDIA V100 32GB | 1-00:00:00 | 8G / 768G | up | GPU compute — multiple GPU types available (see node list) |
+
 
 
 ---
@@ -143,17 +125,34 @@ Note: Edit any data cell → re-run **Panel builders** → re-run **Cell 7** (Re
 
 #### `module avail` — CLI software catalogue
 
-**chem:** `Gaussian/16-C.02`
-**compiler:** `GCC/13.2.0`, `Intel OneAPI/2024.1`, `NVHPC/24.3`
-**container:** `Singularity/4.1.2`, `Apptainer/1.3.0`
-**gpu:** `CUDA/12.4`, `cuDNN/9.0`
-**io:** `HDF5/1.14.3`, `NetCDF/4.9.2`
-**lang:** `Python/3.12.0`, `R/4.3.2`, `Julia/1.10.0`
-**math:** `FFTW/3.3.10`, `LAPACK/3.11.0`
-**ml:** `TensorFlow/2.16.1`, `PyTorch/2.3.0`, `JAX/0.4.26`
-**mpi:** `OpenMPI/4.1.6`, `MPICH/4.1.2`
-**sim:** `LAMMPS/2024-05`, `GROMACS/2024.1`
-**viz:** `ParaView/5.12`
+[k.shaymardanov@explorer-02 courses-for-instructors]$ module avail
+---------------------------------------------------------- /shared/EL9/explorer/modulefiles -----------------------------------------------------------
+7zip/2501          code-server/4.91.1   FFmpeg/7.1.1                 intel/tbb-2022.0    namd/2.14-mpi-plumed  perl/5.40.0           VMD/1.9.3     
+Abaqus/2023        code-server/4.101.1  GA/5.9.2                     intel/umf-0.9.1     namd/3.0.1            plumed/2.10.0         VMD/1.9.4a55  
+Abaqus/2024        code-server/4.108.2  GA/5.9.2-intel               job-assist/1.0      namd/3.0.1-CUDA       python/3.13.5         VTune/2025.0  
+admin/2018-10-10   code-server/4.109.0  gaussian/g16                 jq/1.7.1            netcdf/4.9.3-gcc      qhull/8.1             weka/3.8.6    
+AMBER/24           code-server/4.109.5  git/2.52.0                   julia/1.10.4        netcdf/4.9.3-intel    R/4.4.1               
+AMBER/24-netcdf    comsol-jornet/60     glew/2.2.0                   knime/5.3.1         netlogo/6.4.0         rclone/1.72.0         
+anaconda3/2024.06  comsol-nanofem/62    GNU-parallel/2025-04-22      LAMMPS/29Aug2024    nextflow/24.10.3      ROCm/6.3.0            
+Ansys/2025R1       comsol-west/60       go/1.23.2                    lsb/1.0             nextflow/25.04.6      samtools/1.21         
+bamtools/2.5.2     cplex/20.1           gromacs/2024.3               Lumerical/2025R1    nodejs/v22.11.0       SAS/9.4               
+bbmap/39.11        cuda/12.1.1          gromacs/2024.3-cpu           mathematica/14.1.0  Nsight/2024.7.1       schrodinger/2024-4    
+bcftools/1.21      cuda/12.3.0          gurobi/11.0.3                matlab/3.0.1        nvidia-hpc-sdk/24.7   schrodinger/2025-3    
+bedtools/2.31.1    cuda/12.3.0.old      gurobi/12.0.2                matlab/R2023b       OpenBabel/2.4.1       spark/4.1.0           
+blast/2.13.0       cuda/12.8.0          HDF5/1.14.6                  matlab/R2024b       OpenBLAS/0.3.29       sratoolkit/12Dec2024  
+Boost/1.88.0       cuda/13.2.0          HDF5/nvhpc-1.14.6            matlab/R2025a       OpenCV/4.10.0         star/2.7.11b          
+bowtie2/2.5.4      cuDNN/9.10.2         htop/3.3.0                   matlab/R2025b       OpenFOAM/12           starccm+/18.02.008    
+bwa/0.7.18         cursor-server/1.5.9  igv/2.18.4                   miniconda3/24.11.1  OpenJDK/22.0.2        starccm+/18.04.009    
+clustal/2.1        discovery/1.0        intel/compilers-2025.0.4     miniconda3/25.9.1   OpenMPI/4.1.6         Stata/17              
+cmake/3.30.2       EMAN2/2.99.47        intel/compilers-rt-2025.0.4  Molcas/25.06        OpenSees/3.7.1        Tinker/8.11.3         
+cmake/4.2.3        explorer/1.0         intel/mkl-2025.0             MPICH/4.3.0b1       ParaView/5.13.0-RC2   trimmomatic/0.39      
+cmake/4.4.0        fastqc/0.12.1        intel/mpi-2021.14            namd/2.14-mpi       ParaView/5.13.1       vcftools/0.1.16       
+
+----------------------------------------------------------- /usr/share/Modules/modulefiles ------------------------------------------------------------
+dot  module-git  module-info  modules  null  use.own  
+
+Key:
+loaded  modulepath 
 
 #### Open OnDemand — interactive browser apps
 
@@ -368,9 +367,6 @@ Enter your option:
 
 
 # Open On-Demand (OOD) demo
-
-
-> 💡 *The interactive OOD demo (with screenshots and Panel widgets) is available in the Jupyter notebook version of this document.*
 
 
 
