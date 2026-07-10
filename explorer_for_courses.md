@@ -197,7 +197,7 @@ loaded  modulepath
 
 # Partner universities in MGHPCC
 
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>partners</em><br><code style="font-size:11px"images/>partners.jpeg</code></div>
+![MGHPCC partners](images/partners.jpeg)
 
 
 ---
