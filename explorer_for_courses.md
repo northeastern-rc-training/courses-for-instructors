@@ -204,7 +204,12 @@ loaded  modulepath
 
 
 # Resources availalbe at RC
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>neu-rc</em><br><code style="font-size:11px">neu-rc.jpeg</code></div>
+<a href="data:images/glossary_data-center-architecture-diagram.png;base64,..." target="_blank"
+   title="Click to open full size">
+  <img src="data:images/neu-rc.jpeg;base64,..."
+       alt="Demo panel screenshot"
+       style="max-width:700px; height:auto; cursor:zoom-in">
+</a>
 
 
 ---
