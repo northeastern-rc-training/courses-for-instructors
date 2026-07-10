@@ -224,8 +224,12 @@ loaded  modulepath
 
 # Classroom resources 
 https://rc-docs.northeastern.edu/en/explorer-main/classroom/
+<<<<<<< HEAD
 ![classroom-resources](classroom-resources.jpeg)
 
+=======
+![pic](images/classroom-resources.jpeg)
+>>>>>>> 97db178 (Pictures being tested still.)
 
 ---
 
@@ -237,8 +241,13 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 
 - We require all courses to have be in canvas to be added to the cluster.​
 
+<<<<<<< HEAD
 ![craf-1](images/classroom-access-form-1.jpeg)
 ![craf-2](images/classroom-access-form-2.jpeg)
+=======
+<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>craf</em><br><code style="font-size:11px">images/classroom-access-form-1.jpeg</code></div>
+<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>craf</em><br><code style="font-size:11px">images/classroom-access-form-2.jpeg</code></div>
+>>>>>>> 97db178 (Pictures being tested still.)
 
 
 ---
@@ -248,10 +257,17 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 - Storage: each course has 1 TB in /courses
   - All students, instructors, teaching assistants, auditors also get username specific `/home` and `/scratch` space.
   - The `data/` and `shared/` directories have read-execute permissions for students, and read-write-execute for staff (Instructors and TA’s).
+<<<<<<< HEAD
 ![data,shared](data,shared.jpeg)
 
   - The `staff/` and `students/` directories have username specific sub-directories that are read-write-execute only by the owner. ​
 ![staff,students](staff,students.jpeg)
+=======
+![data,shared](images/data,shared.jpeg)
+
+  - The `staff/` and `students/` directories have username specific sub-directories that are read-write-execute only by the owner. ​
+![staff,student](staff,students.jpeg)
+>>>>>>> 97db178 (Pictures being tested still.)
 
   - It is the responsibility of the instructor to maintain data or materials for their course.​
     - We recommend storing the data in `/projects` in between terms. (https://bit.ly/NURC-NewStorage)​
@@ -396,8 +412,14 @@ Enter your option:
 ---
 
 
-# Open On-Demand (OOD) demo
+# Command line interface (CLI) and Open On-Demand (OOD) demo
+## CLI: srun demo
 
+## CLI: sbatch demo
+
+## OOD: files
+
+## OOD: jupyterlab
 
 
 ---
