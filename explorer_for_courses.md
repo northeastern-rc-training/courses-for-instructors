@@ -11,23 +11,38 @@ HPC Systems Engineer \
 Research Computing (RC) \
 https://rc.northeastern.edu/research-computing-team/
 
+
 # Explorer Cluster for Instructors and Courses
 **HPC Summer Training Series**
 
+---
+
+## Table of Content
+
+- [Datacenter overview](# Datacenter overview: MGHPCC and Partner universities)
+  - [Data center in a nutshell](#Data center in a nutshell)
+  - [Resources availalbe at RC](#Resources availalbe at RC)
+- [Explorer HPC Cluster](#Explorer HPC Cluster)
+- [Explorer Cluster — Node Specifications](#Explorer Cluster — Node Specifications)
+  - [CPU Nodes — `courses` partition)](#CPU Nodes — `courses` partition)
+  - [GPU Nodes — `courses-gpu` partition](#GPU Nodes — `courses-gpu` partition)
+  - [GPU Types Summary](#GPU Types Summary)
+- [Partitions](#Partitions)
+- [](#)
 
 ---
 
-# Partner universities in MGHPCC
+## Datacenter overview: MGHPCC and Partner universities
 
 MIT, Harvard, Yale, NEU, UMass, BU
 
-## Data center in a nutshell
+### Data center in a nutshell
 ![How-does-DC-look-like](images/glossary_data-center-architecture-diagram.png.webp)
 
 ---
 
 
-# Resources availalbe at RC
+### Resources availalbe at RC
 
 - CPU Compute nodes
 - GPU compute nodes
@@ -38,13 +53,13 @@ https://rc-docs.northeastern.edu/en/explorer-main/best-practices/index.html
 
 ---
 
-# Explorer HPC Cluster
+## Explorer HPC Cluster
 
 The Explorer cluster is one of several clusters housed at the MGHPCC (Holyoke, MA). https://www.mghpcc.org/​
 Explorer cluster has 1,024 CPU nodes, 50,000 CPU cores, and over 200 GPUs.​
 Performant and archival storage capabilities. ​
 
-**Architecture layers in the cluster view:**
+**Cluster layers:**
 - ⚙️ Layer 1 — Workload & Job Management (sbatch, srun, OOD - https://ood.explorer.northeastern.edu, sacct)
 - 📦 Layer 2 — Software Environment (module avail, OOD)
 - 🔐 Layer 3 — Identity & Resource Access (partitions, QOS, sacctmgr, sshare)
@@ -59,7 +74,7 @@ Performant and archival storage capabilities. ​
 
 
 **Cluster:** `explorer` &nbsp;·&nbsp; production &nbsp;·&nbsp; InfiniBand HDR 100G  
-**OS:** Rocky Linux 8.9 &nbsp;·&nbsp; **Scheduler:** Slurm 23.11.4  
+**OS:** Rocky Linux 9.3 &nbsp;·&nbsp; **Scheduler:** Slurm 23.11.4  
 **Utilization:** 71%
 
 ### CPU Nodes — `courses` partition
@@ -115,7 +130,7 @@ NODELIST     CPUS   MEMORY                           GRES    STATE
        d1011       28   191000         gpu:v100-sxm2:4(S:0-1)    drain
 ```
 
-### GPU Type Summary
+### GPU Types Summary
 
 ```bash
 [k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses-gpu -eO "NodeList:22,CPUs:6,Memory:8,Gres:35,NodeAIOT:12,StateLong:10"      
@@ -148,10 +163,10 @@ c[2189-2192]          28    515000  (null)                             0/4/0/4  
 ---
 
 
-## Software Environment
+### Software Environment
 
 
-*27 catalogue entries &nbsp;·&nbsp; 23 in `module avail` &nbsp;·&nbsp; 10 in Open OnDemand*
+*27 catalogue entries &nbsp;·&nbsp; 87 in `module avail` &nbsp;·&nbsp; 30+ in Open OnDemand*
 
 #### `module avail` — CLI software catalogue
 
@@ -188,7 +203,7 @@ Key:
 loaded  modulepath
 ```
 
-#### Open OnDemand — interactive browser apps
+#### Open OnDemand — interactive browser apps (some entries)
 
 | App | Version | Category | Description |
 |-----|---------|----------|-------------|
@@ -207,15 +222,15 @@ loaded  modulepath
 ---
 
 
-# Classroom resources 
+## Classroom resources 
 https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 ![pic](images/classroom-resources.jpeg)
 
 ---
 
 
-# Courses
-## How to request access to the Explorer cluster for a course?​
+## Courses
+### How to request access to the Explorer cluster for a course?​
 
 - Once the course is present in Canvas, you can fill out a classroom access form: https://bit.ly/NURC-Classroom​
 
@@ -227,7 +242,7 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 ---
 
 
-# Storage for courses
+### Storage for courses
 - Storage: each course has 1 TB in /courses
   - All students, instructors, teaching assistants, auditors also get username specific `/home` and `/scratch` space.
   - The `data/` and `shared/` directories have read-execute permissions for students, and read-write-execute for staff (Instructors and TA’s).
@@ -244,7 +259,7 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 ---
 
 
-# Courses Partitions
+### Courses Partitions
 
 
 | Part. Name  |Time limit (default/max)|Running jobs(user/course)|Sub. jobs(user/course)|Core limit (per user)|  Use case                                              |  
@@ -264,11 +279,11 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 ## Cluster Access
 
 
-# Using the terminal (srun and sbatch demo)
+## Using the terminal
 - Mac: terminal
 - Windows: MobaXterm or Putty on port 22
 
-## Accessing CLI (command line interface) from OOD
+### Accessing CLI (command line interface) from OOD
 Go to OOD homepage then to “Clusters” tab and select “>_explorer Shell Access” (you may be prompted to login)
 
 
@@ -278,7 +293,7 @@ Go to OOD homepage then to “Clusters” tab and select “>_explorer Shell Acc
 ```bash
 ssh username@login.explorer.northeastern.edu
 
-# With -X11 forwarding and passwordless ssh:
+### With -X11 forwarding and passwordless ssh:
 ssh –Y username@login.explorer.northeastern.edu
 ```
 
@@ -286,7 +301,7 @@ ssh –Y username@login.explorer.northeastern.edu
 ---
 
 
-## Batch script description
+### Batch script description
 
 
 ```bash
@@ -321,7 +336,7 @@ echo "HELLO WORLD!”           # Instruction – Bash command to execute when j
 ---
 
 
-## Interactive (srun) or batch (sbatch) job?
+### Interactive (srun) or batch (sbatch) job?
 The module `job-assist` provides an interactive tool to write srun commands or generate sbatch scripts, 
 https://rc-docs.northeastern.edu/en/explorer-main/runningjobs/runningsjob.html.
 
@@ -374,24 +389,30 @@ Enter your option:
 
 ---
 
+## Graphical user interface (GUI) - Open on-demand (OOD)
 
-# Command line interface (CLI) and Open On-Demand (OOD) demo
-## CLI: srun 
+### OOD: files
 
-## CLI: sbatch 
-
-## OOD: files
 ![ood > files](images/files_in_OOD.jpg)
 ![files:cd](images/options_of_files.jpg)
 ![files:options](images/ch-dir.jpg)
 
-## OOD: jupyterlab
+### OOD: jupyterlab
+
 ![ood > jlab](images/jlab.jpg)
 ![jlab:courses-gpu](images/jlab-courses-gpu.jpg)
 ![jlab:pending-session](images/jlab-queued.jpg)
 ![jlab:session/job-start](images/jn-connection.jpg)
 ![jlab:job-running](images/bash-in-jlab.jpg)
 ![jlab:expired](images/jlab-completed.jpg)
+
+
+# CLI and GUI demo
+## CLI: srun 
+
+## CLI: sbatch 
+
+## GUI: OOD - jupyterlab
 
 ---
 
