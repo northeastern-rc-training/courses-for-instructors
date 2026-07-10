@@ -17,6 +17,26 @@ https://rc.northeastern.edu/research-computing-team/
 
 ---
 
+# Partner universities in MGHPCC
+
+MIT, Harvard, Yale, NEU, UMass, BU
+
+## Data center in a nutshell
+![How-does-DC-look-like](images/glossary_data-center-architecture-diagram.png.webp)
+
+---
+
+
+# Resources availalbe at RC
+
+- CPU Compute nodes
+- GPU compute nodes
+- Storage
+
+Here is the complete list:
+https://rc-docs.northeastern.edu/en/explorer-main/best-practices/index.html
+
+---
 
 # Explorer HPC Cluster
 
@@ -187,36 +207,6 @@ loaded  modulepath
 ---
 
 
-<a href="data:images/glossary_data-center-architecture-diagram.png.webp;base64,..." target="_blank"
-   title="Click to open full size">
-  <img src="data:image/png;base64,..."
-       alt="Demo panel screenshot"
-       style="max-width:700px; height:auto; cursor:zoom-in">
-</a>
-
----
-
-
-# Partner universities in MGHPCC
-
-![MGHPCC partners](images/partners.jpeg)
-
-
----
-
-
-# Resources availalbe at RC
-<a href="data:images/glossary_data-center-architecture-diagram.png;base64,..." target="_blank"
-   title="Click to open full size">
-  <img src="data:images/neu-rc.jpeg;base64,..."
-       alt="Demo panel screenshot"
-       style="max-width:700px; height:auto; cursor:zoom-in">
-</a>
-
-![
----
-
-
 # Classroom resources 
 https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 ![pic](images/classroom-resources.jpeg)
@@ -237,7 +227,7 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 ---
 
 
-# Storage
+# Storage for courses
 - Storage: each course has 1 TB in /courses
   - All students, instructors, teaching assistants, auditors also get username specific `/home` and `/scratch` space.
   - The `data/` and `shared/` directories have read-execute permissions for students, and read-write-execute for staff (Instructors and TA’s).
@@ -259,8 +249,7 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 
 | Part. Name  |Time limit (default/max)|Running jobs(user/course)|Sub. jobs(user/course)|Core limit (per user)|  Use case                                              |  
 |-------------|------------------------|-------------------------|----------------------|---------------------|--------------------------------------------------------|
-|  courses    |  4/24 Hours          | 25/250                |  50/100            |  128              |Best for serial or small parallel jobs (--nodes=2 max)| 
-|             |                      |                       |                  |                     |that need to run for up to 24 hours.                  |
+|  courses    |  4/24 Hours          | 25/250                |  50/100            |  128              |Best for serial or small parallel jobs (--nodes=2 max) that needs to run for up to 24 hours.| 
 | courses-gpu |  4/24 Hours          | 1/100                 |  50/100            |  1 GPU            |For jobs that require GPUs and can run on a single GPU|
 
 
@@ -372,9 +361,9 @@ https://rc-docs.northeastern.edu/en/explorer-main/runningjobs/runningsjob.html.
 
 ```bash
 [k.shaymardanov@explorer-02 ~]$ module load job-assist/1.0 
+[k.shaymardanov@explorer-02 ~]$ job-assist
 ```
 ```text
-[k.shaymardanov@explorer-02 ~]$ job-assist
 SLURM Menu:
 1. Default mode (srun --pty /bin/bash)
 2. Interactive Mode
@@ -383,20 +372,19 @@ SLURM Menu:
 Enter your option:
 ```
 
-
-
 ---
 
 
 # Command line interface (CLI) and Open On-Demand (OOD) demo
-## CLI: srun demo
+## CLI: srun 
 
-## CLI: sbatch demo
+## CLI: sbatch 
 
 ## OOD: files
 ![ood > files](images/files_in_OOD.jpg)
-![files:cd](images/ch-dir.jpg)
-![files:options](images/files_in_OOD.jpg)
+![files:cd](images/options_of_files.jpg)
+![files:options](images/ch-dir.jpg)
+
 ## OOD: jupyterlab
 ![ood > jlab](images/jlab.jpg)
 ![jlab:courses-gpu](images/jlab-courses-gpu.jpg)
