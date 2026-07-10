@@ -97,7 +97,10 @@ NODELIST     CPUS   MEMORY                           GRES    STATE
 
 ### GPU Type Summary
 
-```[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses-gpu -eO "NodeList:22,CPUs:6,Memory:8,Gres:35,NodeAIOT:12,StateLong:10"      
+```bash
+[k.shaymardanov@explorer-02 courses-for-instructors]$ sinfo -p courses-gpu -eO "NodeList:22,CPUs:6,Memory:8,Gres:35,NodeAIOT:12,StateLong:10"      
+```
+```text
 NODELIST              CPUS  MEMORY  GRES                               NODES(A/I/O/STATE     
 c2184                 28    512000  gpu:p100:3(S:0-1)                  0/0/1/1     down*     
 c2187                 28    512000  gpu:p100:4(S:0-1)                  0/0/1/1     down*     
@@ -118,7 +121,7 @@ c[2189-2192]          28    515000  (null)                             0/4/0/4  
 | Partition | Nodes | Total CPUs | GPU Types | Time Limit | Mem default / max | State | Notes |
 |-----------|-------|-----------|-----------|------------|-------------------|-------|-------|
 | `courses` | 21 | 1,024 | — | 2-00:00:00 | 4G / 256G | up | General CPU compute for coursework |
-| `courses-gpu` | 14 | 960 | NVIDIA A100 40GB SXM<br>NVIDIA A100 80GB SXM<br>NVIDIA A30 24GB<br>NVIDIA H100 80GB SXM5<br>NVIDIA L40S 48GB<br>NVIDIA P100 24GB<br>NVIDIA V100 32GB | 1-00:00:00 | 8G / 768G | up | GPU compute — multiple GPU types available (see node list) |
+| `courses-gpu` | 14 | 960 | NVIDIA Tesla V100-SXM2-32GB<br>NVIDIA Tesla P100-PCIE-12GB | 1-00:00:00 | 8G / 768G | up | GPU compute — multiple GPU types available (see node list) |
 
 
 
@@ -132,8 +135,13 @@ c[2189-2192]          28    515000  (null)                             0/4/0/4  
 
 #### `module avail` — CLI software catalogue
 
-`[k.shaymardanov@explorer-02 courses-for-instructors]$ module avail`
-`---------------------------------------------------------- /shared/EL9/explorer/modulefiles -----------------------------------------------------------
+```
+bash
+[k.shaymardanov@explorer-02 courses-for-instructors]$ module avail
+```
+```
+text
+---------------------------------------------------------- /shared/EL9/explorer/modulefiles -----------------------------------------------------------
 7zip/2501          code-server/4.91.1   FFmpeg/7.1.1                 intel/tbb-2022.0    namd/2.14-mpi-plumed  perl/5.40.0           VMD/1.9.3     
 Abaqus/2023        code-server/4.101.1  GA/5.9.2                     intel/umf-0.9.1     namd/3.0.1            plumed/2.10.0         VMD/1.9.4a55  
 Abaqus/2024        code-server/4.108.2  GA/5.9.2-intel               job-assist/1.0      namd/3.0.1-CUDA       python/3.13.5         VTune/2025.0  
@@ -159,7 +167,8 @@ cmake/4.4.0        fastqc/0.12.1        intel/mpi-2021.14            namd/2.14-m
 dot  module-git  module-info  modules  null  use.own  
 
 Key:
-loaded  modulepath`
+loaded  modulepath
+```
 
 #### Open OnDemand — interactive browser apps
 
@@ -180,7 +189,7 @@ loaded  modulepath`
 ---
 
 
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>alt text</em><br><code style="font-size:11px">glossary_data-center-architecture-diagram.png.webp</code></div>
+<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>alt text</em><br><code style="font-size:11px"images/>glossary_data-center-architecture-diagram.png.webp</code></div>
 
 
 ---
@@ -188,7 +197,7 @@ loaded  modulepath`
 
 # Partner universities in MGHPCC
 
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>partners</em><br><code style="font-size:11px">partners.jpeg</code></div>
+<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>partners</em><br><code style="font-size:11px"images/>partners.jpeg</code></div>
 
 
 ---
@@ -358,7 +367,11 @@ https://rc-docs.northeastern.edu/en/explorer-main/runningjobs/runningsjob.html.
 
 
 ```
+bash
 [k.shaymardanov@explorer-02 ~]$ module load job-assist/1.0 
+```
+```
+text
 [k.shaymardanov@explorer-02 ~]$ job-assist
 SLURM Menu:
 1. Default mode (srun --pty /bin/bash)
