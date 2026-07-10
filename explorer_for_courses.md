@@ -187,7 +187,7 @@ loaded  modulepath
 ---
 
 
-<a href="data:image/>glossary_data-center-architecture-diagram.pn;base64,..." target="_blank"
+<a href="data:images/glossary_data-center-architecture-diagram.png.webp;base64,..." target="_blank"
    title="Click to open full size">
   <img src="data:image/png;base64,..."
        alt="Demo panel screenshot"
@@ -206,9 +206,19 @@ loaded  modulepath
 
 
 # Resources availalbe at RC
+<<<<<<< HEAD
 ![DC](images/glossary_data-center-architecture-diagram.png)
 
+=======
+<a href="data:images/glossary_data-center-architecture-diagram.png;base64,..." target="_blank"
+   title="Click to open full size">
+  <img src="data:images/neu-rc.jpeg;base64,..."
+       alt="Demo panel screenshot"
+       style="max-width:700px; height:auto; cursor:zoom-in">
+</a>
+>>>>>>> 09e23ed (Pictures being tested still.)
 
+![
 ---
 
 
