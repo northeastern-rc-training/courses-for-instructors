@@ -135,12 +135,10 @@ c[2189-2192]          28    515000  (null)                             0/4/0/4  
 
 #### `module avail` — CLI software catalogue
 
-```
-bash
+```bash
 [k.shaymardanov@explorer-02 courses-for-instructors]$ module avail
 ```
-```
-text
+```text
 ---------------------------------------------------------- /shared/EL9/explorer/modulefiles -----------------------------------------------------------
 7zip/2501          code-server/4.91.1   FFmpeg/7.1.1                 intel/tbb-2022.0    namd/2.14-mpi-plumed  perl/5.40.0           VMD/1.9.3     
 Abaqus/2023        code-server/4.101.1  GA/5.9.2                     intel/umf-0.9.1     namd/3.0.1            plumed/2.10.0         VMD/1.9.4a55  
@@ -189,8 +187,12 @@ loaded  modulepath
 ---
 
 
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>alt text</em><br><code style="font-size:11px"images/>glossary_data-center-architecture-diagram.png.webp</code></div>
-
+<a href="data:image/>glossary_data-center-architecture-diagram.pn;base64,..." target="_blank"
+   title="Click to open full size">
+  <img src="data:image/png;base64,..."
+       alt="Demo panel screenshot"
+       style="max-width:700px; height:auto; cursor:zoom-in">
+</a>
 
 ---
 
@@ -366,12 +368,10 @@ https://rc-docs.northeastern.edu/en/explorer-main/runningjobs/runningsjob.html.
     - `seff slurm_jobid`
 
 
-```
-bash
+```bash
 [k.shaymardanov@explorer-02 ~]$ module load job-assist/1.0 
 ```
-```
-text
+```text
 [k.shaymardanov@explorer-02 ~]$ job-assist
 SLURM Menu:
 1. Default mode (srun --pty /bin/bash)
