@@ -231,8 +231,8 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 
 - We require all courses to have be in canvas to be added to the cluster.​
 
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>craf</em><br><code style="font-size:11px">images/classroom-access-form-1.jpeg</code></div>
-<div style="border:2px dashed #c8c7c0;border-radius:8px;padding:20px;text-align:center;color:#9b9a94;background:#f7f7f5;margin:8px 0">🖼️ <em>craf</em><br><code style="font-size:11px">images/classroom-access-form-2.jpeg</code></div>
+![craf1](images/classroom-access-form-1.jpeg)
+![craf2](images/classroom-access-form-2.jpeg)
 
 ---
 
@@ -244,7 +244,7 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 ![data,shared](images/data,shared.jpeg)
 
   - The `staff/` and `students/` directories have username specific sub-directories that are read-write-execute only by the owner. ​
-![staff,student](staff,students.jpeg)
+![staff,student](images/staff,students.jpeg)
 
   - It is the responsibility of the instructor to maintain data or materials for their course.​
     - We recommend storing the data in `/projects` in between terms. (https://bit.ly/NURC-NewStorage)​
@@ -259,11 +259,10 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 
 | Part. Name  |Time limit (default/max)|Running jobs(user/course)|Sub. jobs(user/course)|Core limit (per user)|  Use case                                              |  
 |-------------|------------------------|-------------------------|----------------------|---------------------|--------------------------------------------------------|
-|  courses    |  `4/24 Hours`          | `25/250`                |  `50/100`            |  `128`              |`Best for serial or small parallel jobs (--nodes=2 max)`| 
-|             |                        |                         |                      |                     |`that need to run for up to 24 hours.`                  |
-|-------------|------------------------|-------------------------|----------------------|---------------------|--------------------------------------------------------|
-| courses-gpu |  `4/24 Hours`          | `1/100`                 |  `50/100`            |  `1 GPU`            |`For jobs that require GPUs and can run on a single GPU`|
-|-------------|------------------------|-------------------------|----------------------|---------------------|--------------------------------------------------------|
+|  courses    |  4/24 Hours          | 25/250                |  50/100            |  128              |Best for serial or small parallel jobs (--nodes=2 max)| 
+|             |                      |                       |                  |                     |that need to run for up to 24 hours.                  |
+| courses-gpu |  4/24 Hours          | 1/100                 |  50/100            |  1 GPU            |For jobs that require GPUs and can run on a single GPU|
+
 
 
 - These partitions are only available for students and instructors.
@@ -395,9 +394,16 @@ Enter your option:
 ## CLI: sbatch demo
 
 ## OOD: files
-
+![ood > files](images/files_in_OOD.jpg)
+![files:cd](images/ch-dir.jpg)
+![files:options](images/files_in_OOD.jpg)
 ## OOD: jupyterlab
-
+![ood > jlab](images/jlab.jpg)
+![jlab:courses-gpu](images/jlab-courses-gpu.jpg)
+![jlab:pending-session](images/jlab-queued.jpg)
+![jlab:session/job-start](images/jn-connection.jpg)
+![jlab:job-running](images/bash-in-jlab.jpg)
+![jlab:expired](images/jlab-completed.jpg)
 
 ---
 
