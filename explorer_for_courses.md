@@ -505,11 +505,11 @@ nvidia-smi
 ```
 ### GUI: OOD - jupyterlab
 
-CPU: OOD > Courses > IE7374 > Select Lab: genai-cpu > Select partition: courses
-GPU: OOD > Courses > IE7374 > Select Lab: genai-cpu > Select partition: courses-gpu
+- CPU: OOD > Courses > IE7374 > Select Lab: genai-cpu > Select partition: courses
+- GPU: OOD > Courses > IE7374 > Select Lab: genai-cpu > Select partition: courses-gpu
 
 To cancel active jupyter notebook sessions avoiding resouse holding:
-OOD > My Interactive Sessions > Cancel the runnign job
+- OOD > My Interactive Sessions > Cancel the runnign job
 
 ---
 
