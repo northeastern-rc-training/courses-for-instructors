@@ -27,9 +27,36 @@ https://rc.northeastern.edu/research-computing-team/
   - [CPU Nodes — `courses` partition)](#CPU Nodes — `courses` partition)
   - [GPU Nodes — `courses-gpu` partition](#GPU Nodes — `courses-gpu` partition)
   - [GPU Types Summary](#GPU Types Summary)
-- [Partitions](#Partitions)
-- [](#)
-
+- [Partitions for courses](#Partitions for courses)
+- [Software Environment](#Software Environment)
+  -[module avail](#module avail)
+  -[Open On-Demand](#Open On-Demand)
+- [Classroom Resources](#Classroom Resources)
+- [Courses](#Courses)
+  -[Access](#Access)
+  -[Storage](#Storage)
+  -[Partitions](#Partitions)
+- [Cluster Access](#Cluster Access)
+  -[Using the terminal](#Using the terminal)
+  -[Accessing CLI (command line interface) from OOD](#Accessing CLI (command line interface) from OOD)
+  -[Batch script description](#Batch script description)
+  -[Interactive (srun) or batch (sbatch) job?](#Interactive (srun) or batch (sbatch) job?)
+  -[When to use which](#When to use which)
+  -[What CPU resources are available currently](#What CPU resources are available currently)
+  -[What GPU resources are available currently](#What GPU resources are available currently)
+- [Monitoring jobs](#Monitoring jobs)
+- [Graphical user interface (GUI) - Open on-demand (OOD)](#Graphical user interface (GUI) - Open on-demand (OOD))
+  -[OOD: files](#OOD: files)
+  -[OOD: jupyterlab](#OOD: jupyterlab)
+- [CLI and GUI demo](#CLI and GUI demo)
+  -[CLI: srun](#CLI: srun)
+  -[CLI: sbatch](#CLI: sbatch)
+  -[GUI: OOD - jupyterlab](#GUI: OOD - jupyterlab)
+- [RC Support](#RC Support)
+  -[Office Hours;](#Office Hours;)
+  -[Consultations, and;](#Consultations, and;)
+  -[Service now tickets](#Service now tickets)
+  
 ---
 
 ## Datacenter overview: MGHPCC and Partner universities
@@ -150,7 +177,7 @@ c[2189-2192]          28    515000  (null)                             0/4/0/4  
 ---
 
 
-## Partitions
+## Partitions for courses
 
 
 | Partition | Nodes | Total CPUs | GPU Types | Time Limit | Mem default / max | State | Notes |
@@ -163,12 +190,12 @@ c[2189-2192]          28    515000  (null)                             0/4/0/4  
 ---
 
 
-### Software Environment
+## Software Environment
 
 
 *27 catalogue entries &nbsp;·&nbsp; 87 in `module avail` &nbsp;·&nbsp; 30+ in Open OnDemand*
 
-#### `module avail` — CLI software catalogue
+### `module avail` — CLI software catalogue
 
 ```bash
 [k.shaymardanov@explorer-02 courses-for-instructors]$ module avail
@@ -203,7 +230,7 @@ Key:
 loaded  modulepath
 ```
 
-#### Open OnDemand — interactive browser apps (some entries)
+### Open OnDemand — interactive browser apps (some entries)
 
 | App | Version | Category | Description |
 |-----|---------|----------|-------------|
@@ -279,7 +306,7 @@ https://rc-docs.northeastern.edu/en/explorer-main/classroom/
 ## Cluster Access
 
 
-## Using the terminal
+### Using the terminal
 - Mac: terminal
 - Windows: MobaXterm or Putty on port 22
 
@@ -311,9 +338,9 @@ ssh –Y username@login.explorer.northeastern.edu
 #SBATCH --partition=courses   # - Partition name where job needs to run.
 #SBATCH --job-name=test       # - The name of the job 
 #SBATCH --time=01:00:00       # - Allocated time for the compute resources
-#SBATCH –-nodes=1             # - Nodes being allocated
-#SBATCH –-ntasks=10           # - Total number of parallel tasks to launch for a job or step
-#SBATCH –-cpus-per-task=2     # - Number of CPUs requested
+#SBATCH --nodes=1             # - Nodes being allocated
+#SBATCH --ntasks=10           # - Total number of parallel tasks to launch for a job or step
+#SBATCH --cpus-per-task=2     # - Number of CPUs requested
 #SBATCH --output=%j.output    # - Output log file
 #SBATCH --error=%j.error      # - Error log file
 
@@ -370,8 +397,14 @@ https://rc-docs.northeastern.edu/en/explorer-main/runningjobs/runningsjob.html.
     - `scontrol show job slurm_jobid`
 - To cancel a job:
     - `scancel slurm_jobid`
+    - `scancel <jobid>`             # cancel one job
+    - `scancel --me`                # cancel ALL your jobs
 - To see job resource usage efficiency:
     - `seff slurm_jobid`
+- To check the jobs i started:
+    - `squeue --me`                 # your jobs, current state (PD=pending, R=running)
+    - `squeue --me --start`         # estimated start time for pending jobs
+    
 
 
 ```bash
@@ -407,20 +440,84 @@ Enter your option:
 ![jlab:expired](images/jlab-completed.jpg)
 
 
-# CLI and GUI demo
-## CLI: srun 
+## CLI and GUI demo
+### CLI: srun 
 
-## CLI: sbatch 
+# --- 1) Grab a quick interactive shell on a compute node --------------------
+# Good first demo: shows you are no longer on the login node.
+srun --partition=courses --time=00:30:00 --cpus-per-task=2 --mem=4G --pty bash
+#   --pty bash  = attach a real terminal running bash
+#   ...then run `hostname` inside to prove you moved to a compute node.
+#   Exit with `exit` (this RELEASES the allocation — stress this to students).
 
-## GUI: OOD - jupyterlab
+# --- 2) Run a single command on a node without an interactive shell ---------
+srun --partition=courses --time=00:05:00 hostname
+srun --partition=courses --ntasks=4 bash -c 'echo "task $SLURM_PROCID on $(hostname)"'
+
+# --- 3) Interactive GPU session (for live ML/debugging demos) ---------------
+srun --partition=courses-gpu --gres=gpu:1 --cpus-per-task=4 --mem=16G \
+     --time=01:00:00 --pty bash
+#   ...then `nvidia-smi` inside to show the granted GPU.
+
+### CLI: sbatch 
+
+#### Job1: sbatch cpu-job.sbatch
+```
+#!/bin/bash                   
+
+#SBATCH --partition=courses   
+#SBATCH --job-name=test-courses       
+#SBATCH --time=01:00:00       
+#SBATCH --nodes=1             
+#SBATCH --ntasks=10           
+#SBATCH --cpus-per-task=2     
+#SBATCH --output=%j.output    
+#SBATCH --error=%j.error      
+
+# ---- everything below runs on the compute node, not the login node ----
+echo "Hello from $(hostname)"
+echo "Job ID:    $SLURM_JOB_ID"
+echo "Submitted from: $SLURM_SUBMIT_DIR"
+echo "Started at:     $(date)"
+sleep 10                          
+echo "Finished at:    $(date)"
+```
+#### Job2: sbatch gpu-job.sbatch
+```
+#!/bin/bash                   
+
+#SBATCH --partition=courses-gpu   
+#SBATCH --job-name=test-courses-gpu       
+#SBATCH --time=01:00:00       
+#SBATCH --nodes=1             
+#SBATCH --ntasks=10           
+#SBATCH --cpus-per-task=2
+#SBATCH --gres=gpu:1
+#SBATCH --output=%j.output    
+#SBATCH --error=%j.error      
+
+# ---- software ----
+module purge
+module load cuda/12.8
+
+echo "Job sees these GPUs (CUDA_VISIBLE_DEVICES): ${CUDA_VISIBLE_DEVICES}"
+nvidia-smi
+```
+### GUI: OOD - jupyterlab
+
+CPU: OOD > Courses > IE7374 > Select Lab: genai-cpu > Select partition: courses
+GPU: OOD > Courses > IE7374 > Select Lab: genai-cpu > Select partition: courses-gpu
+
+To cancel active jupyter notebook sessions avoiding resouse holding:
+OOD > My Interactive Sessions > Cancel the runnign job
 
 ---
 
 
-# RC Support
-## - Office Hours; 
-## - Consultations, and;
-## - Service now tickets
+## RC Support
+### - Office Hours; 
+### - Consultations, and;
+### - Service now tickets
 Details:
 - https://rc-docs.northeastern.edu/en/explorer-main/index.html
 - https://rc.northeastern.edu/support/gettinghelp/
