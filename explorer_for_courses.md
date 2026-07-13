@@ -442,7 +442,7 @@ Enter your option:
 
 ## CLI and GUI demo
 ### CLI: srun 
-
+```
 # --- 1) Grab a quick interactive shell on a compute node --------------------
 # Good first demo: shows you are no longer on the login node.
 srun --partition=courses --time=00:30:00 --cpus-per-task=2 --mem=4G --pty bash
@@ -458,7 +458,7 @@ srun --partition=courses --ntasks=4 bash -c 'echo "task $SLURM_PROCID on $(hostn
 srun --partition=courses-gpu --gres=gpu:1 --cpus-per-task=4 --mem=16G \
      --time=01:00:00 --pty bash
 #   ...then `nvidia-smi` inside to show the granted GPU.
-
+```
 ### CLI: sbatch 
 
 #### Job1: sbatch cpu-job.sbatch
